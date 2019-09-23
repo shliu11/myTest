@@ -9,8 +9,19 @@ function resolve (dir) {
 }
 
 
+var webpack = require("webpack")
 
+// 增加一个plugins
+plugins: [
+  new webpack.optimize.CommonsChunkPlugin('common.js'),
+  new webpack.ProvidePlugin({
+    jQuery: "jquery",
+    $: "jquery"
+  })
+
+],
 module.exports = {
+
   context: path.resolve(__dirname, '../'),
   entry: {
     app: './src/main.js'
@@ -23,6 +34,7 @@ module.exports = {
       : config.dev.assetsPublicPath
   },
   resolve: {
+
     extensions: ['.js', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
@@ -30,6 +42,7 @@ module.exports = {
     }
   },
   module: {
+
     rules: [
       {
         test: /\.vue$/,
@@ -80,3 +93,5 @@ module.exports = {
     child_process: 'empty'
   }
 }
+
+

@@ -1,8 +1,24 @@
-<template>
-  <div id="app">
+<template><!--只能有一个父级-->
+  <div id="app"><!--覆盖掉了index.html上id为app的dom元素-->
     <img src="./assets/logo.png">
-    <router-view/>
+
+    <h1>Hello App!</h1>
+    <p>
+      <!-- 使用 router-link 组件来导航. -->
+      <!-- 通过传入 `to` 属性指定链接. -->
+      <!-- <router-link> 默认会被渲染成一个 `<a>` 标签 -->
+      <!-- <router-link to="/">Go to 首页</router-link>-->
+      <router-link to="/foo">Go to Foo</router-link><!--index.js根据routes加载各个.vue文件-->
+      <router-link to="/bar">Go to Bar</router-link>
+      <router-link to="/login">Go to Login</router-link>
+    </p>
+    <!-- 路由出口 -->
+    <!-- 路由匹配到的组件将渲染在这里 -->
+
+    <router-view/><!--去加载index.js内容---index.js再去根据import加载各个.vue文件-->
+
   </div>
+
 </template>
 
 <script>
