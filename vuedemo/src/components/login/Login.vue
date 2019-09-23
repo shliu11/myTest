@@ -1,8 +1,6 @@
 <template>
   <div>
-    <div class="outer_label">
-      <img class="inner_label login_logo" src="../../assets/logo.png">
-    </div>
+
     <div class="login_form">
       <input type="text"  class="qxs-ic_user qxs-icon"  placeholder="用户名" v-model="userName">
       <input type="text"  class="qxs-ic_password qxs-icon"  placeholder="密码" v-model="password">
