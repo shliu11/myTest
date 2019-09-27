@@ -26,12 +26,14 @@ export default new Router({
     {
       path: '/foo',
       name: 'Foo',
-      component: Foo
+      /*component: Foo*/
+      component:() => import("@/components/Foo")
     },
     {
       path: '/bar',
       name: 'Bar',
-      component: Bar
+      /*component: Bar*/
+      component:() => import("@/components/Bar")
     }
     ,
     {
