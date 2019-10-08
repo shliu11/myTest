@@ -1,16 +1,6 @@
 <template>
   <div>
 
-  <!--  <div class="login_form">
-      <input type="text"  class="qxs-ic_user qxs-icon"  placeholder="用户名" v-model="userName" id="userName">
-      <input type="text"  class="qxs-ic_password qxs-icon"  placeholder="密码" v-model="password" id="password">
-
-      <el-button class="login_btn" @click.native="login" type="primary" round :loading="isBtnLoading">登录</el-button>
-      <div style="margin-top: 10px">
-        <span style="float: right;color: #A9A9AB">忘记密码？</span>
-      </div>
-    </div>-->
-
     <div id="login">
       <el-form :model="loginForm" :rules="loginRules" ref="loginForm">
 
@@ -44,31 +34,31 @@
                 loginForm: {
                     username: '',
                     password: '',
+                },
+                loginRules: {//element-ui自带的校验方法，loginRules为自定义命名
+                    username: [
+                        {
+                            required: true,
+                            message: "请输入用户名",
+                            trigger: "blur"
+                        }
+                    ],
+                    password: [
+                        {
+                            required: true,
+                            message: '请输入密码',
+                            trigger: 'blur'
+                        }
+                    ]
                 }
             }
         },
-        loginRules: {//element-ui自带的校验方法
-            username: [
-                {
-                    required: true,
-                    message: "请输入用户名",
-                    trigger: "blur"
-                }
-            ],
-            password: [
-                {
-                    required: true,
-                    message: '请输入密码',
-                    trigger: 'blur'
-                }
-            ]
-        },
+
         //在methods加上处理方法
         methods: {
             handleLogin (){
-                this.$refs.loginForm.validate((valid) => {
+                this.$refs.loginForm.validate((valid) => {//单纯按loginRules规则验证是否有值
                     if(valid){
-
                         loginReq(this.loginForm.username,this.loginForm.password).then((res) => {
                             console.log(res.data.status);
                             this.$router.push({
@@ -90,8 +80,8 @@
 
     export function loginReq(username,password) {
         return request.post('/login.json',{
-            loginName: username,
-            loginPassword: password
+            userName: username,
+            userPassword: password
         })
     }
 </script>
