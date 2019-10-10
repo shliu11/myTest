@@ -22,11 +22,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+
         </dependency>
+
         <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>2.1.0</version>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>  
         </dependency>
 
         <dependency>
@@ -39,6 +40,11 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <dependency> <!-- logback -->
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logging</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
@@ -49,5 +55,16 @@
             </plugin>
         </plugins>
     </build>
-
+    <resources>
+        <resource>
+            <directory>src/main/resources</directory>
+            <filtering>false</filtering>
+           <!-- <excludes>
+                <exclude>**/application*.properties</exclude>
+                <exclude>dev-conf/*.properties</exclude>
+                <exclude>test-conf/*.properties</exclude>
+                <exclude>prod-conf/*.properties</exclude>
+            </excludes>-->
+        </resource>
+    </resources>
 </project>

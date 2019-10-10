@@ -5,3 +5,23 @@ spring:
   password: root
   driver-class-name: com.mysql.cj.jdbc.Driver
   #com.mysql.jdbc.Driver
+
+mybatis-plus:
+  global-config:
+    db-config:
+     id-type: auto
+     field-strategy: not_empty
+     column-underline: true   #驼峰下划线转换
+     logic-delete-value: 0 #逻辑删除配置
+     logic-not-delete-value: 1
+     db-type: mysql
+    refresh: false
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+
+#logging
+logging:
+ config: classpath:logback.xml
+
+
